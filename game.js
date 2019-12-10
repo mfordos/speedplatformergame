@@ -30,7 +30,8 @@ function preload ()
 {
     this.load.image('sky', 'assets/mars.png');
     this.load.image('ground', 'assets/marsplatform.png');
-    this.load.image('guy', 'assets/guy.png');
+    this.load.image('playerR', 'assets/playerR.png');
+    this.load.image('playerL', 'assets/playerL.png');
     this.load.image('ufo', 'assets/ufo.png');
 }
 
@@ -59,7 +60,7 @@ function create ()
 
 
     // add physics and assign character image to player
-    player = this.physics.add.sprite(50, 800, 'guy');
+    player = this.physics.add.sprite(50, 850, 'playerR');
 
     // makes player bounce a bit when landing
     player.setBounce(0.2);
@@ -96,10 +97,12 @@ function update ()
     if (cursors.left.isDown)
     {
         player.setVelocityX(-160);
+        player.setTexture('playerL');
     }
     else if (cursors.right.isDown)
     {
         player.setVelocityX(160);
+        player.setTexture('playerR');
     }
     else
     {
@@ -117,6 +120,11 @@ function blastOff (player, ufo)
     player.disableBody(true, true);
     ufo.setVelocityX(200);
     ufo.setVelocityY(330);
+    //js does not have a sleep function, use this to introduce sleep specified by miliseconds.
+    setTimeout(() => {
+    confirm("test end game");
+    }, 1000);
+    
 }
 
 // function decrementTimer() {
