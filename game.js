@@ -84,7 +84,7 @@ function create ()
 
 
     // count down timer (still in progress, but below is the general idea) 
-    text = this.add.text(10,10, 'Time Remaining: 60', { font: "20px Arial", fill: "#ffffff", align: "center" });
+    text = this.add.text(10,10, 'Time Remaining: 60', { font: "20px Arial", fill: "#000000", align: "center" });
     // this.time.events.loop(Phaser.Timer.SECOND, decrementTimer, this);
 
     cursors = this.input.keyboard.createCursorKeys();
