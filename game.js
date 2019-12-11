@@ -82,10 +82,26 @@ function create ()
     // go to blastOff function when player and ufo objects overlap 
     this.physics.add.overlap(player, ufo, blastOff, null, this);
 
-
+    
     // count down timer (still in progress, but below is the general idea) 
-    text = this.add.text(10,10, 'Time Remaining: 60', { font: "20px Arial", fill: "#000000", align: "center" });
+   
+    var count = 60, timer = setInterval(function() {
+        $("#counter").html(count--);
+        if(count == 1) clearInterval(timer);
+    }, 1000);
+   
+    text = this.add.text(10,10, 'Time Remaining: ' + count, { font: "20px Arial", fill: "#000000", align: "center" });
     // this.time.events.loop(Phaser.Timer.SECOND, decrementTimer, this);
+
+    // function decrementTimer() {
+    //     if (gameTimer !== 0){
+    //         gameTimer--;
+    //         text.setText('Counter: ' + gameTimer);
+    //     }
+    //     else {
+    //         // gameover. Next scene
+    //     }
+    // }
 
     cursors = this.input.keyboard.createCursorKeys();
 
@@ -127,12 +143,4 @@ function blastOff (player, ufo)
     
 }
 
-// function decrementTimer() {
-//     if (gameTimer !== 0){
-//         gameTimer--;
-//         text.setText('Counter: ' + gameTimer);
-//     }
-//     else {
-//         // gameover. Next scene
-//     }
-// }
+
