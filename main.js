@@ -62,7 +62,7 @@ class main extends Phaser.Scene {
         this.playing = true;
         var that = this;
         var timer;
-        timer = this.add.text(10,10, 'Time Remaining: 60s', { font: "20px Impact", fill: "#000000", align: "center" });
+        timer = this.add.text(10,10, 'Time Remaining: 30s', { font: "20px Impact", fill: "#000000", align: "center" });
         
         this.interval = setInterval(function() {
             if(that.playing){
@@ -78,8 +78,6 @@ class main extends Phaser.Scene {
             }
             else {return;}
         }, 1000);
-
-
 
     }
     update(delta) {
@@ -103,7 +101,6 @@ class main extends Phaser.Scene {
         {
             this.player.setVelocityY(-330);
         }
-
     }
 
     blastOff(player, ufo)
