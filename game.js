@@ -90,6 +90,11 @@ function create ()
         if(count == 1) clearInterval(timer);
     }, 1000);
    
+
+
+
+
+    
     text = this.add.text(10,10, 'Time Remaining: ' + count, { font: "20px Arial", fill: "#000000", align: "center" });
     // this.time.events.loop(Phaser.Timer.SECOND, decrementTimer, this);
 
@@ -102,6 +107,21 @@ function create ()
     //         // gameover. Next scene
     //     }
     // }
+
+
+    var counter = 60;
+var interval = setInterval(function() {
+    counter--;
+    // Display 'counter' wherever you want to display it.
+    if (counter <= 0) {
+     		clearInterval(interval);
+      	$('#timer').html("<h3>Count down complete</h3>");  
+        return;
+    }else{
+    	$('#time').text(counter);
+      console.log("Timer --> " + counter);
+    }
+}, 1000);
 
     cursors = this.input.keyboard.createCursorKeys();
 
